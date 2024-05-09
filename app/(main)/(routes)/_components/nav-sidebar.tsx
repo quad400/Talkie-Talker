@@ -27,13 +27,15 @@ const NavSidebar = async () => {
   });
 
   return (
-    <div className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-zinc-100/80 dark:bg-zinc-700/20 py-3">
+    <div className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-zinc-50 dark:bg-zinc-700/20 py-3">
       <NavAction />
-      <ScrollArea className="flex-1 w-full">
-        {servers.map((server) => (
-          <NavItem key={server.id} data={server} />
-        ))}
-      </ScrollArea>
+      <div className="flex-1 w-full">
+        <ScrollArea>
+          {servers.map((server) => (
+            <NavItem key={server.id} data={server} />
+          ))}
+        </ScrollArea>
+      </div>
       <ModeToggle />
       <UserButton
         afterSignOutUrl="/"

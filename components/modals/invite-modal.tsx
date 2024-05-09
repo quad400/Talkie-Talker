@@ -1,19 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogFooter,
   DialogTitle,
 } from "@/components/ui/dialog";
 import UserAvatar from "../user-avatar";
-import { ServerWIthMember, ServerWithMemberWithProfile } from "@/types";
-import { Server } from "@prisma/client";
+import { ServerWIthMember } from "@/types";
 import { Button } from "../ui/button";
 import axios from "axios";
 
@@ -33,13 +31,15 @@ export const InviteModal = ({ server }: { server: ServerWIthMember }) => {
 
   const handleClose = () => {
     setOpen(false);
+    router.back()
   };
 
   const handleJoinServer = async () => {
     try {
       setIsLoading(true);
       await axios.patch(`/api/servers/${server.id}/join`);
-      router.push(`/servers/${server.id}`);
+
+      router.replace(`/servers/${server.id}`)
       handleClose();
     } catch (error) {
       console.log(error);
@@ -49,7 +49,7 @@ export const InviteModal = ({ server }: { server: ServerWIthMember }) => {
   };
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
+    <Dialog open={open}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-semibold">
@@ -76,7 +76,11 @@ export const InviteModal = ({ server }: { server: ServerWIthMember }) => {
             <Button disabled={isLoading} onClick={handleClose} variant="ghost">
               Cancel
             </Button>
-            <Button disabled={isLoading} onClick={handleJoinServer} variant="primary">
+            <Button
+              disabled={isLoading}
+              onClick={handleJoinServer}
+              variant="primary"
+            >
               Join Server
             </Button>
           </div>

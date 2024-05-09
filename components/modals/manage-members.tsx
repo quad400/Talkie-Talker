@@ -114,7 +114,7 @@ export const ManageMembersModal = () => {
         <div className="flex px-6 flex-col justify-start mb-6 items-start">
           <ScrollArea className="max-h-80 w-full">
             {server?.members.map((member) => (
-              <div className="flex justify-between items-start w-full mb-3">
+              <div key={member.id} className="flex justify-between items-start w-full mb-3">
                 <div className="flex justify-start items-center space-x-3">
                   <UserAvatar imageUrl={member.profile.imageUrl} />
                   <div className="flex flex-col justify-start  items-start">

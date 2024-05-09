@@ -1,15 +1,53 @@
-"use client";
+import { redirect, useParams } from "next/navigation";
+import { redirectToSignIn } from "@clerk/nextjs";
 
-import { useParams } from "next/navigation";
+import currentProfile from "@/lib/current-profile";
+import { db } from "@/lib/db";
 
-const ServerIdPage = () => {
-  const params = useParams();
+const ServerIdPage = async ({ params }: { params: { serverId: string } }) => {
+  const profile = await currentProfile();
 
-  return (
-    <div className="flex flex-col w-full h-full justify-center items-center bg-zinc-100/10 dark:bg-zinc-700/40">
-      {params.serverId}
-    </div>
-  );
+  if (!profile) {
+    return redirectToSignIn();
+  }
+
+  if (!params.serverId) {
+    return null;
+  }
+
+  const server = await db.server.findUnique({
+    where: {
+      id: params.serverId,
+      members: {
+        some: {
+          profileId: profile.id,
+        },
+      },
+    },
+    include: {
+      channels: {
+        where: {
+          name: "general",
+        },
+        orderBy: {
+          createdAt: "asc",
+        },
+      },
+    },
+  });
+
+  if (!server) {
+    return null;
+  }
+
+  const initialChannel = server.channels[0];
+
+
+  if (initialChannel.name !== "general") {
+    return null;
+  }
+
+  return redirect(`/servers/${server?.id}/channels/${initialChannel?.id}`);
 };
 
 export default ServerIdPage;
