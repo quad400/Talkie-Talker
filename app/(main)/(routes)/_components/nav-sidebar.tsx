@@ -27,10 +27,10 @@ const NavSidebar = async () => {
   });
 
   return (
-    <div className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-zinc-50 dark:bg-zinc-700/20 py-3">
+    <div className="space-y-4 flex flex-col items-center h-full text-primary w-[100px] md:w-full bg-zinc-50 dark:bg-zinc-700/20 py-3">
       <NavAction />
       <div className="flex-1 w-full">
-        <ScrollArea>
+        <ScrollArea >
           {servers.map((server) => (
             <NavItem key={server.id} data={server} />
           ))}

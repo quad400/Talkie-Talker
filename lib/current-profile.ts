@@ -1,8 +1,5 @@
 import { auth } from "@clerk/nextjs";
-
 import { db } from "./db";
-import { NextResponse } from "next/server";
-
 
 export default function currentProfile(){
 

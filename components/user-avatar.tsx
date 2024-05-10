@@ -1,8 +1,15 @@
+import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage } from "./ui/avatar";
 
-const UserAvatar = ({ imageUrl }: { imageUrl: string }) => {
+const UserAvatar = ({
+  imageUrl,
+  className,
+}: {
+  imageUrl: string;
+  className?: string;
+}) => {
   return (
-    <Avatar>
+    <Avatar className={cn(className)}>
       <AvatarImage src={imageUrl} alt="Avatar" />
     </Avatar>
   );
