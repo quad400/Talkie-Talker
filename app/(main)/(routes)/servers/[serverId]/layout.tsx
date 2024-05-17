@@ -8,7 +8,7 @@ interface ServerIdLayoutProps {
 
 const ServerIdLayout = async ({ children, params }: ServerIdLayoutProps) => {
   return (
-    <div className="h-full">
+    <div className="h-full flex flex-1">
       <div className="h-full hidden md:flex fixed z-40 w-full bg-emerald-900 md:w-[230px] pt-1 bg-zinc-200/50 dark:bg-neutral-700/30">
         <ServerSideNav serverId={params.serverId} />
       </div>

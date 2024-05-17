@@ -1,9 +1,10 @@
-"use client";
+"use client"
 
-import UserAvatar from "./user-avatar";
-import { MobileToggle } from "./mobile-toggle";
-import { useSocket } from "./providers/socket-provider";
-import { Badge } from "./ui/badge";
+
+import UserAvatar from "../user-avatar";
+import { MobileToggle } from "../mobile-toggle";
+import { useSocket } from "../providers/socket-provider";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 interface ChatHeaderProps {
@@ -22,9 +23,8 @@ export const ChatHeader = ({
   const { isConnected } = useSocket();
 
   return (
-    <div className="flex w-full bg-zinc-900 shadow-xl p-5 justify-between items-center">
+    <div className="flex w-full bg-zinc-900 p-5 justify-between items-center">
       <div className="flex justify-start items-center">
-        {serverId && <MobileToggle serverId={serverId} />}
         {type === "channel" && (
           <div className="text-lg text-zinc-300 font-semibold">
             <span className="text-zinc-500 mr-1">#</span>

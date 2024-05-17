@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import currentProfile from "./current-profile";
+import {currentProfile} from "./current-profile";
 import { db } from "./db";
 
 export async function fetchChannel(channelId: string) {

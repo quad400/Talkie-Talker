@@ -12,11 +12,13 @@ export type ModalType =
   | "deleteServer"
   | "leaveServer"
   | "editChannel"
-  | "deleteChannel";
+  | "deleteChannel" | "sendImage";
 
 interface ModalData {
   server?: ServerWithMemberWithProfile;
-  channel?: Channel
+  channel?: Channel,
+  apiUrl?: string,
+  query?: {}
 }
 
 

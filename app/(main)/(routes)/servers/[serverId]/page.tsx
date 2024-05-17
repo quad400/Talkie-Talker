@@ -1,7 +1,7 @@
 import { redirect, useParams } from "next/navigation";
 import { redirectToSignIn } from "@clerk/nextjs";
 
-import currentProfile from "@/lib/current-profile";
+import {currentProfile} from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
 const ServerIdPage = async ({ params }: { params: { serverId: string } }) => {
