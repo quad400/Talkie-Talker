@@ -29,6 +29,7 @@ export const LeaveServerModal = () => {
       setIsLoading(true);
       await axios.patch(`/api/servers/${server?.id}/leave`);
       router.replace("/servers")
+      router.refresh()
       onClose()
     } catch (error) {
       console.log(error);
@@ -39,9 +40,9 @@ export const LeaveServerModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-100 font-semibold">
             Leave Server
           </DialogTitle>
           <DialogDescription className="text-center my-2">
@@ -49,9 +50,9 @@ export const LeaveServerModal = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="bg-zinc-100 py-3 px-6">
+        <DialogFooter className="bg-zinc-900 py-3 px-6">
           <div className="w-full flex justify-between items-center">
-            <Button disabled={isLoading} onClick={onClose} variant="ghost">
+            <Button disabled={isLoading} onClick={onClose} className="text-white" variant="ghost">
               Cancel
             </Button>
             <Button

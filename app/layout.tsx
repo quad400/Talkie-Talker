@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import {dark} from "@clerk/themes"
 import { ClerkProvider } from "@clerk/nextjs";
 import { Poppins } from "next/font/google";
 import { Toaster } from "sonner";
@@ -9,6 +10,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
 import { SocketProvider } from "@/components/providers/socket-provider";
 import QueryProvider from "@/components/providers/query-provider";
+import { siteConfig } from "@/config/site";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -19,8 +21,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Talkie Talker",
-  description: "Communicate with your friends and ",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`
+  },
+  description: siteConfig.description,
+  icons: [
+    {
+      url: "/logo.png",
+      href: "/logo.png"
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -29,7 +40,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{
+      baseTheme: dark
+    }}>
       <html lang="en" suppressHydrationWarning={true}>
         <body
           className={cn(

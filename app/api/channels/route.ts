@@ -1,7 +1,8 @@
-import currentProfile from "@/lib/current-profile";
+import { NextResponse } from "next/server";
+
 import { db } from "@/lib/db";
 import { MemberRole } from "@prisma/client";
-import { NextResponse } from "next/server";
+import {currentProfile} from "@/lib/current-profile";
 
 export async function POST(req: Request) {
   const { searchParams } = new URL(req.url);

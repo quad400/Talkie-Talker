@@ -22,29 +22,29 @@ export const useChatSocket = ({
   useEffect(() => {
     if (!socket) return;
 
-    socket.on(updateKey, (message: MessageWithMemberWithProfile) => {
-      queryClient.setQueryData([queryKey], (oldData: any) => {
-        if (!oldData || !oldData.pages || oldData.pages.length === 0) {
-          return oldData;
-        }
+    // socket.on(updateKey, (message: MessageWithMemberWithProfile) => {
+    //   queryClient.setQueryData([queryKey], (oldData: any) => {
+    //     if (!oldData || !oldData.pages || oldData.pages.length === 0) {
+    //       return oldData;
+    //     }
 
-        const newData = oldData.pages.map((page: any) => {
-          return {
-            ...page,
-            items: page.items.map((item: MessageWithMemberWithProfile) => {
-              if (item.id === message.id) {
-                return message;
-              }
-              return item;
-            }),
-          };
-        });
-        return {
-          ...oldData,
-          pages: newData,
-        };
-      });
-    });
+    //     const newData = oldData.pages.map((page: any) => {
+    //       return {
+    //         ...page,
+    //         items: page.items.map((item: MessageWithMemberWithProfile) => {
+    //           if (item.id === message.id) {
+    //             return message;
+    //           }
+    //           return item;
+    //         }),
+    //       };
+    //     });
+    //     return {
+    //       ...oldData,
+    //       pages: newData,
+    //     };
+    //   });
+    // });
 
     socket.on(addKey, (message: MessageWithMemberWithProfile) => {
       queryClient.setQueryData([queryKey], (oldData: any) => {
@@ -73,7 +73,7 @@ export const useChatSocket = ({
 
     return () => {
       socket.off(addKey);
-      socket.off(updateKey);
+      // socket.off(updateKey);
     };
-  }, [queryClient, addKey, queryKey, updateKey, socket]);
+  }, [queryClient, addKey, queryKey, socket]);
 };

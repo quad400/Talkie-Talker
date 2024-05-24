@@ -20,6 +20,7 @@ import {
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Button } from "../ui/button";
 import { useModal } from "@/hooks/use-modal-store";
+import EmojiPicker from "../emoji-picker";
 
 interface ChatFooterProps {
   apiUrl: string;
@@ -54,7 +55,7 @@ const ChatFooter = ({ apiUrl, query, type }: ChatFooterProps) => {
       });
       await axios.post(url, values);
 
-      form.reset()
+      form.reset();
     } catch (error) {
       console.log(error);
     }
@@ -82,7 +83,10 @@ const ChatFooter = ({ apiUrl, query, type }: ChatFooterProps) => {
                     <Image className="h-5 w-5 text-neutral-500" />
                   </MenubarItem>
                   <MenubarSeparator />
-                  <MenubarItem className="flex justify-between items-center space-x-2 text-sm font-medium text-white">
+                  <MenubarItem
+                    onClick={() => onOpen("sendFile", { apiUrl, query })}
+                    className="flex justify-between items-center space-x-2 text-sm font-medium text-white"
+                  >
                     File
                     <File className="h-5 w-5 text-neutral-500" />
                   </MenubarItem>
@@ -96,23 +100,29 @@ const ChatFooter = ({ apiUrl, query, type }: ChatFooterProps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
-                      autoComplete="off"
-                        disabled={isSubmitting}
-                        className="bg-transparent border-0 focus-visible:ring-0
+                      <div className="flex justify-between items-center">
+                        <Input
+                          autoComplete="off"
+                          disabled={isSubmitting}
+                          className="bg-transparent border-0 focus-visible:ring-0
 py-0 max-h-[150px] items-center
                                 text-white text-sm font-normal focus-visible:ring-offset-0"
-                        placeholder="Message here..."
-                        {...field}
-                      />
+                          placeholder="Message here..."
+                          {...field}
+                        />
+                        <div>
+                          <EmojiPicker
+                            onChange={(emoji: string) =>
+                              field.onChange(`${field.value} ${emoji}`)
+                            }
+                          />
+                        </div>
+                      </div>
                     </FormControl>
                   </FormItem>
                 )}
               />
             </div>
-            <Button size="icon" variant="ghost">
-              <Smile className="h-7 w-7 text-zinc-200" />
-            </Button>
           </div>
           <Button
             disabled={hasMessageContent}

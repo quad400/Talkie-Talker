@@ -6,6 +6,7 @@ type ChatScrollProps = {
   shouldLoadMore: boolean;
   loadMore: () => void;
   count: number;
+  inView: boolean
 };
 
 export const useChatScroll = ({
@@ -13,29 +14,17 @@ export const useChatScroll = ({
   chatRef,
   count,
   loadMore,
+  inView,
   shouldLoadMore,
 }: ChatScrollProps) => {
   const [hasInitialized, setHasInitialized] = useState(false);
 
   useEffect(() => {
-    const topDiv = chatRef?.current;
-
-    console.log(topDiv?.scrollTop)
-    const handleScrollTop = () => {
-      const scrollTop = topDiv?.scrollTop;
-
-      // console.log(scrollTop)
-      if (scrollTop === 0 && shouldLoadMore) {
-        loadMore();
-      }
-    };
-
-    topDiv?.addEventListener("scroll", handleScrollTop);
-
-    return () => {
-      topDiv?.removeEventListener("scroll", handleScrollTop);
-    };
-  }, [shouldLoadMore, loadMore, chatRef]);
+    
+    if(inView && shouldLoadMore){
+      loadMore()
+    }
+  }, [shouldLoadMore, loadMore, inView]);
 
   useEffect(() => {
     const bottomDiv = bottomRef?.current;

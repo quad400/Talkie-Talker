@@ -1,15 +1,16 @@
 "use client";
 
-import { useChatQuery } from "@/hooks/use-chat-query";
-import ChatWelcome from "./chat-welcome";
+import { useInView } from 'react-intersection-observer'
 import { Loader2, ServerCrash } from "lucide-react";
-import { ElementRef, Fragment, useRef } from "react";
-import { Member, Message, Profile } from "@prisma/client";
-import ChatItem from "./chat-item";
-import { ScrollArea } from "../ui/scroll-area";
-import { useChatSocket } from "@/hooks/use-chat-socket";
+import { ElementRef, Fragment, useEffect, useRef } from "react";
+
 import { MessageWithMemberWithProfile } from "@/types";
+import { useChatSocket } from "@/hooks/use-chat-socket";
+import { useChatQuery } from "@/hooks/use-chat-query";
 import { useChatScroll } from "@/hooks/use-chat-scroll";
+
+import ChatWelcome from "./chat-welcome";
+import ChatItem from "./chat-item";
 
 interface ChatMessageProps {
   name: string;
@@ -32,9 +33,13 @@ const ChatMessage = ({
   socketQuery,
   socketUrl,
 }: ChatMessageProps) => {
+  
   const queryKey = `chat:${chatId}`;
   const addKey = `chat:${chatId}/messages`;
   const updateKey = `chat:${chatId}/messages/update`;
+
+  const {ref, inView} = useInView();
+
 
   const chatRef = useRef<ElementRef<"div">>(null);
   const bottomRef = useRef<ElementRef<"div">>(null);
@@ -47,6 +52,7 @@ const ChatMessage = ({
   useChatScroll({
     chatRef,
     bottomRef,
+    inView,
     loadMore: fetchNextPage,
     shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
     count: data?.pages?.[0]?.items?.length ?? 0,
@@ -76,7 +82,7 @@ const ChatMessage = ({
   }
 
   return (
-    <div ref={chatRef} className="flex flex-1 px-4 h-screen flex-col">
+    <div ref={ref} className="flex flex-1 px-4 h-screen flex-col">
       {!hasNextPage && <div className="flex-1" />}
       {!hasNextPage && <ChatWelcome name={name} type={type} />}
       {hasNextPage && (
@@ -104,6 +110,7 @@ const ChatMessage = ({
                 text={message.text}
                 imageUri={message.imageUri}
                 role={message.member.role}
+                fileUri={message.fileUri}
                 messageId={message.id}
                 deleted={message.deleted}
                 createdAt={message.createdAt}

@@ -34,7 +34,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import { ChannelType } from "@prisma/client";
-import currentProfile from "@/lib/current-profile";
+import {currentProfile} from "@/lib/current-profile";
 
 const formSchema = z.object({
   name: z
@@ -92,7 +92,7 @@ export const CreateChannelrModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-zinc-100 p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-semibold">
             Create New Channel
@@ -132,7 +132,7 @@ export const CreateChannelrModal = () => {
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
-                      <FormLabel className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70">
+                      <FormLabel className="uppercase text-sm font-bold text-secondary/70">
                         Channel Type
                       </FormLabel>
                       <SelectTrigger className="border-0 focus:border-0 focus:ring-0 focus:ring-offset-0 capitalize ring-0 w-full bg-zinc-200">

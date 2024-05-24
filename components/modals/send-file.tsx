@@ -29,15 +29,15 @@ import queryString from "query-string";
 
 
 const formSchema = z.object({
-  imageUri: z.string().min(1, {
+  fileUri: z.string().min(1, {
     message: "image is required",
   }),
 });
 
-export const SendImageModal = () => {
+export const SendFileModal = () => {
   const { isOpen, onClose, type, data } = useModal();
 
-  const isModalOpen = isOpen && type === "sendImage";
+  const isModalOpen = isOpen && type === "sendFile";
 
   const {apiUrl, query} = data
 
@@ -46,7 +46,7 @@ export const SendImageModal = () => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      imageUri: "",
+      fileUri: "",
     },
   });
 
@@ -81,7 +81,7 @@ export const SendImageModal = () => {
       <DialogContent className="bg-white  mt-6 text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-semibold">
-            Send Image
+            Send FIle
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -90,12 +90,12 @@ export const SendImageModal = () => {
               <div className="flex items-center justify-center text-center">
                 <FormField
                   control={form.control}
-                  name="imageUri"
+                  name="fileUri"
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
                         <FileUpload
-                          endpoint="serverImage"
+                          endpoint="messageFile"
                           value={field.value}
                           onChange={field.onChange}
                         />

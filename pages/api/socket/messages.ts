@@ -1,5 +1,5 @@
 import { NextApiRequest } from "next";
-import { NextApiResponseServerIo } from "../../../types";
+import { NextApiResponseServerIo } from "@/types";
 import { currentProfilePage } from "@/lib/current-profile-page";
 import { db } from "@/lib/db";
 
@@ -13,6 +13,7 @@ export default async function handler(
 
   try {
     const { text, imageUri, fileUri, video } = req.body;
+
     const { serverId, channelId } = req.query;
 
     const profile = await currentProfilePage(req);

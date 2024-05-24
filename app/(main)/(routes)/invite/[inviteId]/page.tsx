@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
-import currentProfile from "@/lib/current-profile";
 import { InviteModal } from "@/components/modals/invite-modal";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { currentProfile } from "@/lib/current-profile";
 
 const InvitePage = async ({ params }: { params: { inviteId: string } }) => {
   const profile = await currentProfile();

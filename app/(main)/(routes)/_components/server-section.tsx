@@ -92,7 +92,7 @@ const ServerSection = ({
           )}
         </>
       </div>
-      <div className="flex flex-col mt-2">
+      <div className="flex flex-col mt-2 space-y-2">
         {!!channels?.length &&
           channels?.map((channel) => (
             <Button

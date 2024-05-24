@@ -1,9 +1,7 @@
 import { ChannelType, Server } from "@prisma/client";
 import ServerSideNavHeader from "./server-sidenav-header";
-// import {currentProfile} from "@/lib/current-profile";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
-import { Button } from "@/components/ui/button";
 import { Command, Hash, Mic, Search, Video } from "lucide-react";
 import ServerSearch from "./server-search";
 import ServerSection from "./server-section";

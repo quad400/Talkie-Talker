@@ -1,5 +1,5 @@
 import { InitialModal } from "@/components/modals/initial-modal";
-import {currentProfile} from "@/lib/current-profile";
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 
@@ -20,15 +20,12 @@ const MainServerPage = async () => {
     },
   });
 
+
   if (servers.length > 0) {
     return redirect(`/servers/${servers[0].id}`);
+  } else {
+    return redirect("/servers/recommended");
   }
-
-  return (
-    <div>
-      <InitialModal />
-    </div>
-  );
 };
 
 export default MainServerPage;

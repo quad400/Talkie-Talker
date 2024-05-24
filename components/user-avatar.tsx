@@ -8,9 +8,11 @@ const UserAvatar = ({
   imageUrl: string;
   className?: string;
 }) => {
+
+  
   return (
-    <Avatar className={cn(className)}>
-      <AvatarImage src={imageUrl} alt="Avatar" />
+    <Avatar  className={cn("relative h-[40px] w-[40px]",className)}>
+      <AvatarImage src={imageUrl} alt="Avatar" className="h-full w-full" />
     </Avatar>
   );
 };

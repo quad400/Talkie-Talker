@@ -11,6 +11,7 @@ import { LeaveServerModal } from "../modals/leave-server.modal";
 import { EditChannelModal } from "../modals/edit-channel-modal";
 import { DeleteChannelModal } from "../modals/delete-channel-modal";
 import { SendImageModal } from "../modals/send-image";
+import { SendFileModal } from "../modals/send-file";
 
 export const ModalProvider = () => {
   const [isMounted, setisMounted] = useState(false);
@@ -34,6 +35,7 @@ export const ModalProvider = () => {
       <EditChannelModal />
       <DeleteChannelModal />
       <SendImageModal />
+      <SendFileModal />
     </>
   );
 };

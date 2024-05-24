@@ -1,11 +1,11 @@
-"use client"
-
+"use client";
 
 import UserAvatar from "../user-avatar";
 import { MobileToggle } from "../mobile-toggle";
 import { useSocket } from "../providers/socket-provider";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import ChatVideoButton from "./chat-video-button";
 
 interface ChatHeaderProps {
   serverId: string | undefined;
@@ -42,16 +42,20 @@ export const ChatHeader = ({
           </div>
         )}
       </div>
+      <div className="flex justify-end items-center">
+
+      {type === "chat" && <ChatVideoButton />}
       <Badge
         className={cn(
           "justify-center items-center font",
           isConnected
-            ? "bg-emerald-500 hover:bg-emerald-600"
-            : "bg-rose-500 hover:bg-rose-600"
+          ? "bg-emerald-500 hover:bg-emerald-600"
+          : "bg-amber-300 hover:bg-amber-500"
         )}
-      >
-        {isConnected ? "Online" : "Offline"}
+        >
+        {isConnected ? "Connected" : "Reconnecting"}
       </Badge>
+        </div>
     </div>
   );
 };
