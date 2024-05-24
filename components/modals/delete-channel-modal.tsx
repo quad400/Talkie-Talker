@@ -57,7 +57,8 @@ export const DeleteChannelModal = () => {
           </DialogTitle>
           <DialogDescription className="text-center my-2">
             Are you Sure you want to delete{" "}
-            <span className="text-indigo-500 font-medium">{channel?.name}</span> , it can't be recover
+            <span className="text-indigo-500 font-medium">{channel?.name}</span> &#44;
+ it can't be recover
             when deleted
           </DialogDescription>
         </DialogHeader>

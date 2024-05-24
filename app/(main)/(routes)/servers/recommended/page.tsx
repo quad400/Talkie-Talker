@@ -45,6 +45,7 @@ const RecommendedPage = async () => {
         <ScrollArea className="flex px-4 flex-col space-y-2">
           {filteredServer.map((server, _) => (
             <ServerItem
+            key={server.id}
               serverId={server.id}
               imageUrl={server.imageUrl}
               name={server.name}

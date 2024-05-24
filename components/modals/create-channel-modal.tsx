@@ -143,8 +143,9 @@ export const CreateChannelrModal = () => {
                       </SelectTrigger>
                       <FormControl>
                         <SelectContent>
-                          {Object.values(ChannelType).map((type) => (
+                          {Object.values(ChannelType).map((type, index) => (
                             <SelectItem
+                            key={index}
                               value={type}
                               className="capitalize font-medium text-sm"
                             >
