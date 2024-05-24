@@ -48,7 +48,7 @@ export const DeleteServerModal = () => {
           </DialogTitle>
           <DialogDescription className="text-center my-2">
             Are you Sure you want to delete this server&#44;
- it can't be recover
+ it can'&apos;t be recover
             when deleted
           </DialogDescription>
         </DialogHeader>

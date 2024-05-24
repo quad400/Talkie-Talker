@@ -1,7 +1,7 @@
 "use client";
 
 import { z } from "zod";
-import { File, Image, PlusCircle, SendHorizonal, Smile } from "lucide-react";
+import { File, Image as ImageIcon, PlusCircle, SendHorizonal, Smile } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import queryString from "query-string";
@@ -80,7 +80,7 @@ const ChatFooter = ({ apiUrl, query, type }: ChatFooterProps) => {
                     className="flex justify-between items-center space-x-2 text-sm font-medium text-white"
                   >
                     Photo
-                    <Image className="h-5 w-5 text-neutral-500" />
+                    <ImageIcon className="h-5 w-5 text-neutral-500" />
                   </MenubarItem>
                   <MenubarSeparator />
                   <MenubarItem
