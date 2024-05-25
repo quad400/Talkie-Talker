@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 const MainServerPage = async () => {
   const profile = await currentProfile();
 
+  console.log("PROFILE===", profile)
   if (!profile) {
     return redirect("/");
   }

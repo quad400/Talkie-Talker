@@ -9,6 +9,7 @@ export default function Page() {
 
   return (
     <SignIn
+    afterSignInUrl="/servers"
       appearance={{
         baseTheme: theme === "dark" ? dark : undefined,
       }}

@@ -46,19 +46,13 @@ const ChatItem = ({
         <div className="flex justify-start items-start space-x-1">
           <UserAvatar imageUrl={profile.imageUrl} />
           <div className="flex flex-col px-4 w-full mb-2 justify-start items-start">
-            <div className="py-2 px-4 w-1/2 rounded-lg my-2 justify-center bg-zinc-800">
+            <div className="py-2 px-4 w-1/2 rounded-lg my-2 justify-center bg-zinc-900/30">
               <div className="flex justify-between items-start ">
                 <div className="flex justify-start items-start space-x-2 truncate">
                   <div className="text-zinc-300 font-bold text-sm md:text-base">
                     {profile.name}
                   </div>
-                  {role === "ADMIN" ? (
-                    <ShieldHalf className="h-3 w-3 text-rose-800" />
-                  ) : role === "MODERATOR" ? (
-                    <ShieldQuestion className="h-3 w-3 text-emerald-800" />
-                  ) : (
-                    ""
-                  )}
+                  
                 </div>
                 <div className="text-muted-foreground text-[10px] md:text-xs font-light">
                   {formatTime(createdAt)}
