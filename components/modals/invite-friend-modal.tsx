@@ -62,28 +62,28 @@ export const InviteFriendModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-900 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-300 font-semibold">
             Invite Friends
           </DialogTitle>
         </DialogHeader>
         <div className="space-y-4 px-6">
-          <Label className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70">
+          <Label className="uppercase text-sm font-bold">
             Server Invite Link
           </Label>
           <div className="flex justify-between items-center">
             <Input
               disabled={isLoading}
-              className="bg-zinc-300/50 border-0 flex-1 focus-visible:ring-0
-            text-black focus-visible:ring-offset-0"
+              className="bg-zinc-500/50 border-0 flex-1 focus-visible:ring-0
+            text-zinc-200 focus-visible:ring-offset-0"
               value={inviteUrl}
             />
-            <Button disabled={isLoading} size="icon" onClick={onCopy}>
+            <Button disabled={isLoading} size="icon" variant="ghost" className="ml-3" onClick={onCopy}>
               {isCopied ? (
-                <Check className="h-5 w-5 text-emerald-600 ml-3" />
+                <Check className="h-5 w-5 text-emerald-600" />
               ) : (
-                <Copy className="h-5 w-5 text-zinc-600 ml-3" />
+                <Copy className="h-5 w-5 text-zinc-600" />
               )}
             </Button>
           </div>
@@ -93,7 +93,7 @@ export const InviteFriendModal = () => {
             disabled={isLoading}
             onClick={() => handleRegenerate(server?.id)}
             variant="link"
-            className="underline text-zinc-700 text-sm"
+            className="underline text-muted-foreground text-sm"
           >
             Generate a new link
             <RefreshCcw className="h-4 w-5 ml-1" />

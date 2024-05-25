@@ -77,12 +77,12 @@ export const CreateServerModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center font-semibold text-zinc-300">
             Create new server
           </DialogTitle>
-          <DialogDescription className="text-sm text-center text-neutral-500">
+          <DialogDescription className="text-sm text-center text-muted-foreground">
             Give your server a personality with a name and an image. You can
             always change it later
           </DialogDescription>
@@ -113,14 +113,14 @@ export const CreateServerModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="uppercase text-sm font-bold text-muted-foreground">
                       Server name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0
-                         text-black focus-visible:ring-offset-0"
+                        className="bg-zinc-500/50 border-0 focus-visible:ring-0
+                         text-zinc-100 focus-visible:ring-offset-0"
                         placeholder="Enter server name"
                         {...field}
                       />
@@ -130,7 +130,7 @@ export const CreateServerModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className="bg-zinc-900 px-6 py-4">
               <Button
                 variant="primary"
                 className="w-full md:w-auto"

@@ -78,9 +78,9 @@ export const SendFileModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white  mt-6 text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950  mt-6 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-300 font-semibold">
             Send FIle
           </DialogTitle>
         </DialogHeader>
@@ -106,7 +106,7 @@ export const SendFileModal = () => {
                 />
               </div>
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className="bg-gray-900 px-6 py-4">
               <Button size="lg" variant="primary" disabled={isLoading}>
                 Send
               </Button>

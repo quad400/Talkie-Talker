@@ -100,12 +100,12 @@ export const ManageMembersModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-300 font-semibold">
             Manage Members
           </DialogTitle>
-          <div className="text-zinc-700 font-medium text-center">
+          <div className="font-medium text-center">
             {server?.members.length === 1
               ? `${server?.members.length} member`
               : `${server?.members.length} members`}
@@ -118,10 +118,10 @@ export const ManageMembersModal = () => {
                 <div className="flex justify-start items-center space-x-3">
                   <UserAvatar imageUrl={member.profile.imageUrl} />
                   <div className="flex flex-col justify-start  items-start">
-                    <div className="text-base font-semibold text-zinc-700">
+                    <div className="text-base font-semibold">
                       {member.profile.name}
                     </div>
-                    <div className="text-sm font-medium text-zinc-700">
+                    <div className="text-sm font-medium">
                       {member.profile.email}
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export const ManageMembersModal = () => {
                 {member.role !== MemberRole.ADMIN && (
                   <DropdownMenu>
                     <DropdownMenuTrigger>
-                      <Button disabled={isLoading} size="icon">
+                      <Button disabled={isLoading} size="icon" variant="ghost">
                         {isLoading ? (
                           <LoaderCircle className="animate-spin h-5 w-5 text-zinc-500" />
                         ) : (

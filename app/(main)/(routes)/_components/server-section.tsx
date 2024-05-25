@@ -49,7 +49,8 @@ const ServerSection = ({
 }: ServerSectionProps) => {
   const { onOpen } = useModal();
 
-  const { channelId } = useParams();
+  const params = useParams()
+
 
   const router = useRouter();
 
@@ -101,7 +102,7 @@ const ServerSection = ({
               variant="ghost"
               className={cn(
                 "flex w-full justify-between items-center",
-                channel?.id === channelId && "bg-zinc-800"
+                channel?.id === params?.channelId && "bg-zinc-800"
               )}
             >
               <div className="flex group transition space-x-1 w-full justify-start items-center">

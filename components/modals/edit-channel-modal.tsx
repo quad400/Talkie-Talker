@@ -98,9 +98,9 @@ export const EditChannelModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-300 font-semibold">
             Edit Channel
           </DialogTitle>
         </DialogHeader>
@@ -112,13 +112,13 @@ export const EditChannelModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="uppercase text-sm font-bold">
                       Channel name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0
+                        className="bg-zinc-500/50 border-0 focus-visible:ring-0
                          text-black focus-visible:ring-offset-0"
                         placeholder="Enter server name"
                         {...field}
@@ -139,13 +139,13 @@ export const EditChannelModal = () => {
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
-                      <FormLabel className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70">
+                      <FormLabel className="uppercase text-sm font-bold">
                         Channel Type
                       </FormLabel>
-                      <SelectTrigger className="border-0 focus:border-0 focus:ring-0 focus:ring-offset-0 capitalize ring-0 w-full bg-zinc-200">
+                      <SelectTrigger className="border-0 focus:border-0 focus:ring-0 focus:ring-offset-0 capitalize ring-0 w-full bg-zinc-500/50">
                         <SelectValue
                           placeholder="Select Channel Type"
-                          className="capitalize font-medium text-sm"
+                          className="capitalize font-medium bg-zinc-500/50 text-sm"
                         />
                       </SelectTrigger>
                       <FormControl>
@@ -167,7 +167,7 @@ export const EditChannelModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className="bg-zinc-900 px-6 py-4">
               <Button
                 variant="primary"
                 className="w-full md:w-auto"

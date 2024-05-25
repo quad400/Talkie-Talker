@@ -40,9 +40,9 @@ export const LeaveServerModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-zinc-950 text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center text-zinc-100 font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-300 font-semibold">
             Leave Server
           </DialogTitle>
           <DialogDescription className="text-center my-2">

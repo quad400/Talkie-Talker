@@ -50,9 +50,9 @@ export const InviteModal = ({ server }: { server: ServerWIthMember }) => {
 
   return (
     <Dialog open={open}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-300 font-semibold">
             Server Invite
           </DialogTitle>
         </DialogHeader>
@@ -60,10 +60,10 @@ export const InviteModal = ({ server }: { server: ServerWIthMember }) => {
           <div className="flex space-x-2">
             <UserAvatar imageUrl={server.imageUrl} />
             <div className="flex flex-col justify-start items-start">
-              <div className="text-sm font-semibold text-zinc-700">
+              <div className="text-sm font-semibold">
                 {server.name}
               </div>
-              <div className="text-xs font-medium text-zinc-600">
+              <div className="text-xs font-medium">
                 {server?.members.length === 1
                   ? `${server?.members.length} member`
                   : `${server?.members.length} members`}
@@ -71,7 +71,7 @@ export const InviteModal = ({ server }: { server: ServerWIthMember }) => {
             </div>
           </div>
         </div>
-        <DialogFooter className="bg-zinc-100 py-3 px-6">
+        <DialogFooter className="bg-zinc-900 py-3 px-6">
           <div className="w-full flex justify-between items-center">
             <Button disabled={isLoading} onClick={handleClose} variant="ghost">
               Cancel

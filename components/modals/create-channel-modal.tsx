@@ -106,14 +106,14 @@ export const CreateChannelrModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="uppercase text-sm font-bold text-muted-foreground">
                       Channel name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0
-                         text-black focus-visible:ring-offset-0"
+                        className="bg-zinc-500/50 border-0 focus-visible:ring-0
+                         text-zinc-100 focus-visible:ring-offset-0"
                         placeholder="Enter server name"
                         {...field}
                       />
@@ -132,10 +132,10 @@ export const CreateChannelrModal = () => {
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
-                      <FormLabel className="uppercase text-sm font-bold text-secondary/70">
+                      <FormLabel className="uppercase text-sm font-bold text-muted-foreground">
                         Channel Type
                       </FormLabel>
-                      <SelectTrigger className="border-0 focus:border-0 focus:ring-0 focus:ring-offset-0 capitalize ring-0 w-full bg-zinc-200">
+                      <SelectTrigger className="border-0 focus:border-0 focus:ring-0 focus:ring-offset-0 capitalize ring-0 w-full bg-zinc-500/50">
                         <SelectValue
                           placeholder="Select Channel Type"
                           className="capitalize font-medium text-sm"
@@ -160,7 +160,7 @@ export const CreateChannelrModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className="bg-zinc-900 px-6 py-4">
               <Button
                 variant="primary"
                 className="w-full md:w-auto"

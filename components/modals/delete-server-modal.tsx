@@ -41,9 +41,9 @@ export const DeleteServerModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-zinc-300 text-center font-semibold">
             Delete Server
           </DialogTitle>
           <DialogDescription className="text-center my-2">
@@ -53,7 +53,7 @@ export const DeleteServerModal = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="bg-zinc-100 py-3 px-6">
+        <DialogFooter className="bg-zinc-900 py-3 px-6">
           <div className="w-full flex justify-between items-center">
             <Button disabled={isLoading} onClick={onClose} variant="ghost">
               Cancel

@@ -83,9 +83,9 @@ export const ServerSettingsModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-zinc-950 text-muted-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-semibold">
+          <DialogTitle className="text-2xl text-center text-zinc-300 font-semibold">
             Server Settings
           </DialogTitle>
           <DialogDescription className="text-sm text-center text-neutral-500">
@@ -119,14 +119,14 @@ export const ServerSettingsModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="uppercase text-sm font-bold">
                       Server name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0
-                         text-black focus-visible:ring-offset-0"
+                        className="bg-zinc-500/50 border-0 focus-visible:ring-0
+                         text-zinc-200 focus-visible:ring-offset-0"
                         placeholder="Enter server name"
                         {...field}
                       />
@@ -136,7 +136,7 @@ export const ServerSettingsModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className="bg-gray-900 px-6 py-4">
               <Button
                 variant="primary"
                 className="w-full md:w-auto"

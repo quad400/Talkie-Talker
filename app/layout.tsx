@@ -47,7 +47,7 @@ export default function RootLayout({
         <body
           className={cn(
             poppins.className,
-            "bg-white/65 dark:bg-neutral-700/10"
+            "bg-zinc-700/10 h-full w-full"
           )}
         >
           <ThemeProvider
