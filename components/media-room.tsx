@@ -3,9 +3,15 @@
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
-import { LiveKitRoom, VideoConference } from "@livekit/components-react";
+import {
+  ControlBar,
+  LiveKitRoom,
+  RoomAudioRenderer,
+  VideoConference,
+} from "@livekit/components-react";
 
 import "@livekit/components-styles";
+import { MediaVideoConference } from "./MediaVideoConference";
 
 interface MediaRoomProps {
   chatId: string;
@@ -55,7 +61,10 @@ export const MediaRoom = ({ audio, chatId, video }: MediaRoomProps) => {
       video={video}
       audio={audio}
     >
-      <VideoConference />
+      <MediaVideoConference />
+      <RoomAudioRenderer />
+
+      <ControlBar />
     </LiveKitRoom>
   );
 };

@@ -10,12 +10,12 @@ export const MobileToggle = ({ serverId }: { serverId: any }) => {
   
   return (
       <Sheet>
-        <SheetTrigger asChild className="md:hidden bg-neutral-900">
+        <SheetTrigger asChild className="md:hidden bg-zinc-900">
           <Button variant="ghost" size="icon">
             <Menu className="h-8 w-8" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="m-0 p-0">
+        <SheetContent side="left" className="m-0 p-0 ">
           <div className="flex h-full">
             <NavSidebar />
             <ServerSideNav serverId={serverId} />

@@ -15,7 +15,7 @@ const ChannelPageId = async ({ params }: { params: { channelId: string } }) => {
   }
 
   return (
-    <div className="w-full h-full flex flex-col bg-red-zinc/80">
+    <div className="w-full h-full flex-1 flex flex-col bg-red-zinc/80">
       <div className="flex-row flex w-full pl-2 justify-start items-center bg-zinc-900 shadow-xl">
         <MobileToggle serverId={channel?.serverId} />
         <ChatHeader
@@ -26,7 +26,7 @@ const ChannelPageId = async ({ params }: { params: { channelId: string } }) => {
       </div>
       {channel.type === ChannelType.TEXT && (
         <>
-          <ScrollArea className="flex-1 bg-zinc-800/50">
+          <ScrollArea className="h-full flex-1 flex flex-col bg-zinc-800/50">
             <ChatMessage
               name={channel?.name}
               type="channel"
